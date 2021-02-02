@@ -21,3 +21,19 @@ test('should call the passed function with the provided this value and individua
     'Hello, Dale Cooper. Your access Level is 3. Profile active? true. Any issues to submit? false.'
   expect(functions.funcCall.call(obj, true, false)).toEqual(expectedOutput)
 })
+
+test('should return a mapped array that utilises a passed this value and arguments passed as an array', () => {
+  const obj = {
+    firstName: 'Dale',
+    lastName: 'Cooper',
+    email: 'dale@twinpeaks.com',
+    accessLevel: 3,
+  }
+  const inputArr = ['firstName', 'lastName', 'email', 'accessLevel']
+  expect(functions.funcApply.apply(obj, inputArr)).toEqual([
+    'Dale',
+    'Cooper',
+    'dale@twinpeaks.com',
+    3,
+  ])
+})
