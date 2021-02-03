@@ -1,6 +1,7 @@
 const { expect } = require('@jest/globals')
 const functions = require('./functions')
 
+// funcLength
 test('should return the number of the arguments expected by the passed function', () => {
   expect(functions.funcLength((a, b, c) => a + b + c)).toEqual(3)
 })
@@ -10,6 +11,7 @@ test('should return the name of the passed function', () => {
   expect(functions.funcName(addTwoNumbers)).toEqual('addTwoNumbers')
 })
 
+// funcCall
 test('should call the passed function with the provided this value and individual arguments', () => {
   const obj = {
     firstName: 'Dale',
@@ -22,6 +24,7 @@ test('should call the passed function with the provided this value and individua
   expect(functions.funcCall.call(obj, true, false)).toEqual(expectedOutput)
 })
 
+// funcApply
 test('should return a mapped array that utilises a passed this value and arguments passed as an array', () => {
   const obj = {
     firstName: 'Dale',
@@ -36,4 +39,14 @@ test('should return a mapped array that utilises a passed this value and argumen
     'dale@twinpeaks.com',
     3,
   ])
+})
+
+// funcBind
+test('should return a string using both values from the bound this object and the bound argument', () => {
+  const obj = {
+    userName: 'Audrey',
+    accessLevel: 2
+  }
+  const boundFuncBind = functions.funcBind.bind(obj, true)
+  expect(boundFuncBind()).toEqual('Audrey, your access level is currently 2. Profile active? true.')
 })

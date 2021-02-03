@@ -7,6 +7,9 @@ const functions = {
   funcApply: function (...args) {
     return args.map((e) => this[e])
   },
+  funcBind: function (profileStatus) {
+    return `${this.userName}, your access level is currently ${this.accessLevel}. Profile active? ${profileStatus}.`
+  },
 }
 
 module.exports = functions
