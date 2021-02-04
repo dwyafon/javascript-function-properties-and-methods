@@ -50,3 +50,9 @@ test('should return a string using both values from the bound this object and th
   const boundFuncBind = functions.funcBind.bind(obj, true)
   expect(boundFuncBind()).toEqual('Audrey, your access level is currently 2. Profile active? true.')
 })
+
+// funcToString
+test('should return the passed function as a string', () => {
+  const funcInput = () => 'Stay awesome!'
+  expect(functions.funcToString(funcInput)).toEqual("() => 'Stay awesome!'")
+})

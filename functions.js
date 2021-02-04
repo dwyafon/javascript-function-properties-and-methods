@@ -10,6 +10,7 @@ const functions = {
   funcBind: function (profileStatus) {
     return `${this.userName}, your access level is currently ${this.accessLevel}. Profile active? ${profileStatus}.`
   },
+  funcToString: (func) => func.toString()
 }
 
 module.exports = functions
